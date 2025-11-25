@@ -15,10 +15,13 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { useRouter } from 'expo-router';
 import db from '../src/database/db';
 import { usePOStore } from '../src/store/usePOstore';
+import { useTheme } from '../src/theme/ThemeContext';
 
 export default function AddOrderScreen() {
   const router = useRouter();
-  const { loadOrders } = usePOStore();
+    const { loadOrders } = usePOStore();
+    const { theme } = useTheme();                    // ← 新增
+    const isDark = theme === 'dark';
 
   const [finishedGoods, setFinishedGoods] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -55,49 +58,97 @@ export default function AddOrderScreen() {
   };
 
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-      <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
-        <Text style={styles.label}>Finished Goods</Text>
-        <TextInput style={styles.input} value={finishedGoods} onChangeText={setFinishedGoods} placeholder="e.g. Wireless Earbuds" />
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
+            <ScrollView
+                style={[styles.container, { backgroundColor: isDark ? '#0f172a' : '#f3f4f6' }]}
+                keyboardShouldPersistTaps="handled"
+            >
+              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>Name of the finished goods to be produced</Text>
+                <TextInput
+                    style={[styles.input, {
+                        backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                        color: isDark ? '#e2e8f0' : '#1f2937',
+                        borderColor: isDark ? '#334155' : '#e5e7eb',
+                    }]}
+                    value={finishedGoods}
+                    onChangeText={setFinishedGoods}
+                    placeholder="eg: Wireless Earbuds"
+                    placeholderTextColor={isDark ? '#64748b' : '#9ca3af'}
+                />
 
-        <Text style={styles.label}>Produced Quantity</Text>
-        <TextInput style={styles.input} value={quantity} onChangeText={setQuantity} keyboardType="numeric" placeholder="e.g. 1000" />
+              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>Planned production quantity</Text>
+                <TextInput
+                    style={[styles.input, {
+                        backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                        color: isDark ? '#e2e8f0' : '#1f2937',
+                        borderColor: isDark ? '#334155' : '#e5e7eb',
+                    }]}
+                    value={quantity}
+                    onChangeText={setQuantity}
+                    keyboardType="numeric"
+                    placeholder="eg: 1200"
+                    placeholderTextColor={isDark ? '#64748b' : '#9ca3af'}
+                />
 
-        <Text style={styles.label}>Raw Materials (BOM)</Text>
-        <TextInput
-          style={[styles.input, styles.multiline]}
-          value={rawMaterials}
-          onChangeText={setRawMaterials}
-          multiline
-          numberOfLines={4}
-          placeholder="e.g. Plastic casing, Lithium battery, PCB"
-        />
+              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>List or description of required raw materials (BOM)（BOM）</Text>
+                <TextInput
+                    style={[styles.input, styles.multiline, {
+                        backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                        color: isDark ? '#e2e8f0' : '#1f2937',
+                        borderColor: isDark ? '#334155' : '#e5e7eb',
+                    }]}
+                    value={rawMaterials}
+                    onChangeText={setRawMaterials}
+                    multiline
+                    numberOfLines={4}
+                  placeholder="eg: plastic casing, lithium battery, motherboard, ear pads"
+                    placeholderTextColor={isDark ? '#64748b' : '#9ca3af'}
+                />
 
-        <Text style={styles.label}>Due Date</Text>
-        <TouchableOpacity style={styles.dateButton} onPress={() => setShowDatePicker(true)}>
-          <Text style={styles.dateText}>{dueDate.toISOString().split('T')[0]}</Text>
-        </TouchableOpacity>
-        {showDatePicker && (
-          <DateTimePicker
-            value={dueDate}
-            mode="date"
-            minimumDate={new Date()}
-            onChange={(event, selected) => {
-              setShowDatePicker(false);
-              if (selected) setDueDate(selected);
-            }}
-          />
-        )}
+              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>Planned completion date</Text>
+                <TouchableOpacity
+                    style={[styles.dateButton, {
+                        backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                        borderColor: isDark ? '#334155' : '#e5e7eb',
+                    }]}
+                    onPress={() => setShowDatePicker(true)}
+                >
+                    <Text style={[styles.dateText, { color: isDark ? '#e2e8f0' : '#1f2937' }]}>
+                        {dueDate.toISOString().split('T')[0]}
+                    </Text>
+                </TouchableOpacity>
 
-        <Text style={styles.label}>Storage Location</Text>
-        <TextInput style={styles.input} value={storageLocation} onChangeText={setStorageLocation} placeholder="e.g. Warehouse A" />
+                {showDatePicker && (
+                    <DateTimePicker
+                        value={dueDate}
+                        mode="date"
+                        minimumDate={new Date()}
+                        onChange={(event, selected) => {
+                            setShowDatePicker(false);
+                            if (selected) setDueDate(selected);
+                        }}
+                    />
+                )}
 
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitText}>Create Production Order</Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </KeyboardAvoidingView>
-  );
+              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>Warehouse or section where goods will be stored</Text>
+                <TextInput
+                    style={[styles.input, {
+                        backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                        color: isDark ? '#e2e8f0' : '#1f2937',
+                        borderColor: isDark ? '#334155' : '#e5e7eb',
+                    }]}
+                    value={storageLocation}
+                    onChangeText={setStorageLocation}
+                    placeholder="eg: Warehouse A"
+                    placeholderTextColor={isDark ? '#64748b' : '#9ca3af'}
+                />
+
+                <TouchableOpacity style={[styles.submitButton, { backgroundColor: '#2563eb' }]} onPress={handleSubmit}>
+                    <Text style={styles.submitText}>Place an order</Text>
+                </TouchableOpacity>
+            </ScrollView>
+        </KeyboardAvoidingView>
+    );
 }
 
 const styles = StyleSheet.create({

@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { initDatabase } from '../src/database/db';  // 你的数据库初始化
+import { ThemeProvider } from '../src/theme/ThemeContext';
 
 export default function RootLayout() {
   useEffect(() => {
@@ -9,11 +10,14 @@ export default function RootLayout() {
     initDatabase();
   }, []);
 
-  return (
-    <Stack>
-      <Stack.Screen name="index" options={{ title: 'Production Orders' }} />
-      <Stack.Screen name="add-order" options={{ title: 'New Order' }} /> 
-      <Stack.Screen name="order-detail" options={{ title: 'Order Detail' }} />
-    </Stack>
-  );
+    return (
+        <ThemeProvider>
+            <Stack>
+                <Stack.Screen name="index" options={{ title: 'Production Orders' }} />
+                <Stack.Screen name="add-order" options={{ title: 'New Order' }} />
+                <Stack.Screen name="order-detail" options={{ title: 'Order Details' }} />
+                <Stack.Screen name="ai-assistant" options={{ title: 'AI Assistant' }} />
+            </Stack>
+        </ThemeProvider>
+    );
 }
