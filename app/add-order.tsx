@@ -92,7 +92,7 @@ export default function AddOrderScreen() {
                     placeholderTextColor={isDark ? '#64748b' : '#9ca3af'}
                 />
 
-              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>List or description of required raw materials (BOM)（BOM）</Text>
+              <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#374151' }]}>List or description of required raw materials (BOM) </Text>
                 <TextInput
                     style={[styles.input, styles.multiline, {
                         backgroundColor: isDark ? '#1e293b' : '#ffffff',
