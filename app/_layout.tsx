@@ -4,9 +4,8 @@ import { Stack } from 'expo-router';
 import { initDatabase } from '../src/database/db';
 import { ThemeProvider } from '../src/theme/ThemeContext';
 import { authenticate } from '../src/auth/LocalAuth';
-import { View, ActivityIndicator, Text } from 'react-native';
+import { View, ActivityIndicator, Text ,LogBox} from 'react-native';
 import { scheduleAllDueNotifications } from '../src/notification/notification';
-import { LogBox } from 'react-native';
 
 export default function RootLayout() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

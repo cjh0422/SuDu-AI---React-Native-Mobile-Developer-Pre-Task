@@ -4,13 +4,12 @@
     "\\app",
     "\\src",
     "\\src\\database",
-    "\\src\\navigation",
     "\\src\\notification",
     "\\src\\screens",
     "\\src\\store",
     "\\src\\theme",
     "\\src\\types"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\app\\_layout.tsx",
   "PreviewInSolutionExplorer": false
 }
