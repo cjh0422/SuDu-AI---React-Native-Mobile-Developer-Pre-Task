@@ -1,7 +1,6 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
     "\\assets",
     "\\assets\\images",
     "\\src",
@@ -9,8 +8,9 @@
     "\\src\\database",
     "\\src\\notification",
     "\\src\\store",
-    "\\src\\theme"
+    "\\src\\theme",
+    "\\src\\types"
   ],
-  "SelectedNode": "\\app\\_layout.tsx",
+  "SelectedNode": "\\src\\auth\\LocalAuth.tsx",
   "PreviewInSolutionExplorer": false
 }

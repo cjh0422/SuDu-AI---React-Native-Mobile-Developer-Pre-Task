@@ -9,25 +9,25 @@ export const authenticate = async (): Promise<boolean> => {
         const isEnrolled = await LocalAuthentication.isEnrolledAsync();
 
         if (!hasHardware || !isEnrolled) {
-            Alert.alert('无法使用生物识别', '请在系统设置中设置面容ID/指纹或密码');
+            Alert.alert('Unable to use biometrics', 'Please set up Face ID/fingerprint or password in system settings.');
             return false;
         }
 
         const result = await LocalAuthentication.authenticateAsync({
-            promptMessage: '验证身份以进入生产管理系统',
-            fallbackLabel: '使用密码',
-            cancelLabel: '取消',
+            promptMessage: 'Verify identity to access the PO management system',
+            fallbackLabel: 'Use Password',
+            cancelLabel: 'Cancel',
             disableDeviceFallback: false,
         });
 
         if (result.success) {
             return true;
         } else {
-            Alert.alert('认证失败', '请重试');
+            Alert.alert('Authentication failed', 'Please try again');
             return false;
         }
     } catch (error) {
-        Alert.alert('认证错误', '请稍后重试');
+        Alert.alert('Authentication error', 'Please try again later');
         return false;
     }
 };

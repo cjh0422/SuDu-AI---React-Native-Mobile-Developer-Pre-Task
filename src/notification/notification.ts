@@ -20,8 +20,8 @@ export const scheduleAllDueNotifications = async () => {
         if (daysLeft === 1) {
             await Notifications.scheduleNotificationAsync({
                 content: {
-                    title: '紧急！明天交货',
-                    body: `${order.finished_goods} 明天（${dueDate.format('MM月DD日')}）到期！数量 ${order.produced_quantity} 件`,
+                    title: 'Urgent! Orders required tomorrow.',
+                    body: `${order.finished_goods} due tommorrow（${dueDate.format('MM月DD日')}）！Quantity: ${order.produced_quantity} `,
                     sound: true,
                 },
                 trigger: {
@@ -36,8 +36,8 @@ export const scheduleAllDueNotifications = async () => {
         if (daysLeft === 3) {
             await Notifications.scheduleNotificationAsync({
                 content: {
-                    title: '提醒：还有 3 天交货',
-                    body: `${order.finished_goods} 将于 ${dueDate.format('MM月DD日')} 交货，请准备生产`,
+                    title: 'Reminder: 3 days left',
+                    body: `${order.finished_goods} shall hand in by ${dueDate.format('MM月DD日')} .Please prepare for production.`,
                 },
                 trigger: {
                     hour: 9,
@@ -51,8 +51,8 @@ export const scheduleAllDueNotifications = async () => {
         if (daysLeft === 0 && dueDate.isAfter(now)) {
             await Notifications.scheduleNotificationAsync({
                 content: {
-                    title: '今天必须完成！',
-                    body: `${order.finished_goods} 今天到期！数量 ${order.produced_quantity} 件`,
+                    title: 'Must be completed today！',
+                    body: `${order.finished_goods} due today! Quantity ${order.produced_quantity} `,
                     sound: true,
                 },
                 trigger: { seconds: 10 } as any,
