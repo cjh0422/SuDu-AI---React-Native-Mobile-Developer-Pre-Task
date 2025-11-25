@@ -1,12 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\images",
+    "\\app",
     "\\src",
-    "\\src\\auth",
     "\\src\\database",
+    "\\src\\navigation",
     "\\src\\notification",
+    "\\src\\screens",
     "\\src\\store",
     "\\src\\theme",
     "\\src\\types"

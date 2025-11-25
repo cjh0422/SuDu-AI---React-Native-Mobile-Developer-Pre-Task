@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jiaho\\POManagementApp\\SuDu-AI---React-Native-Mobile-Developer-Pre-Task\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jiaho\\POManagementApp\\SuDu-AI---React-Native-Mobile-Developer-Pre-Task\\src\\database\\db.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\database\\db.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "db.ts",
+              "DocumentMoniker": "C:\\Users\\jiaho\\POManagementApp\\SuDu-AI---React-Native-Mobile-Developer-Pre-Task\\src\\database\\db.ts",
+              "RelativeDocumentMoniker": "src\\database\\db.ts",
+              "ToolTip": "C:\\Users\\jiaho\\POManagementApp\\SuDu-AI---React-Native-Mobile-Developer-Pre-Task\\src\\database\\db.ts",
+              "RelativeToolTip": "src\\database\\db.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-11-25T13:07:26.761Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\jiaho\\POManagementApp\\SuDu-AI---React-Native-Mobile-Developer-Pre-Task\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADcAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-11-25T13:02:00.895Z",
               "EditorCaption": ""

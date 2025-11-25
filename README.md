@@ -26,7 +26,20 @@ Live Demo: Run `npx expo start` → Scan with **Expo Go** on your phone
 - Pure React Native components
 
 ## Project Structure
+app/
+_layout.tsx         → Root layout + DB init
+index.tsx           → Dashboard / Orders list
+add-order.tsx       → Create order form
+order-detail.tsx    → Order details
+ai-assistant.tsx    → Local AI insights
 
+src/
+auth/LocalAuth.ts  → Simple local auth (PIN code/FaceID/Fingerprint)
+database/db.ts      → SQLite setup & demo data
+notification/notifications.ts → Local push notifications
+store/usePOstore.ts → Zustand store
+theme/ThemeContext.tsx → Theming & dark mode
+types/index.ts      → TypeScript types
 
 ## Get Started
 
