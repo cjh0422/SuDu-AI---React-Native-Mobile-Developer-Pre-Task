@@ -3,12 +3,12 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import dayjs from 'dayjs';
-import { useTheme } from '../src/theme/ThemeContext'; // ← 加上这行！
+import { useTheme } from '../src/theme/ThemeContext'; 
 
 export default function OrderDetailScreen() {
     const { order } = useLocalSearchParams();
-    const { theme } = useTheme();                    // ← 新增
-    const isDark = theme === 'dark';                 // ← 新增
+    const { theme } = useTheme();                   
+    const isDark = theme === 'dark';           
 
     if (!order || typeof order !== 'string') {
         return (
@@ -42,35 +42,35 @@ export default function OrderDetailScreen() {
             </View>
 
             <View style={styles.info}>
-                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>数量</Text>
+                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>Quantity</Text>
                 <Text style={[styles.value, { color: isDark ? '#e2e8f0' : '#111827' }]}>
                     {data.produced_quantity.toLocaleString()}
                 </Text>
             </View>
 
             <View style={styles.info}>
-                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>状态</Text>
+                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>Status</Text>
                 <Text style={[styles.status, { backgroundColor: statusColor }]}>
                     {data.status}
                 </Text>
             </View>
 
             <View style={styles.info}>
-                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>交货日期</Text>
+                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>Due Date</Text>
                 <Text style={[styles.value, { color: isDark ? '#e2e8f0' : '#111827' }]}>
                     {dayjs(data.due_date).format('YYYY年MM月DD日')}
                 </Text>
             </View>
 
             <View style={styles.info}>
-                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>原材料</Text>
+                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>Raw materials</Text>
                 <Text style={[styles.value, { color: isDark ? '#e2e8f0' : '#111827' }]}>
                     {data.raw_materials || '未填写'}
                 </Text>
             </View>
 
             <View style={styles.info}>
-                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>存储位置</Text>
+                <Text style={[styles.label, { color: isDark ? '#94a3b8' : '#6b7280' }]}>Location</Text>
                 <Text style={[styles.value, { color: isDark ? '#e2e8f0' : '#111827' }]}>
                     {data.storage_location}
                 </Text>

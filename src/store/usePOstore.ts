@@ -1,6 +1,6 @@
 ﻿// src/store/usePOStore.ts
 import { create } from 'zustand';
-import db from '../database/db';          // ← THIS IS THE CORRECT IMPORT
+import db from '../database/db';        
 import type { ProductionOrder } from '../types';
 
 interface POStore {

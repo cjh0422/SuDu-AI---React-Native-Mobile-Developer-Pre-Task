@@ -45,7 +45,7 @@ export default function DashboardScreen() {
           ]}
           onPress={() => router.push({ pathname: '/order-detail', params: { order: JSON.stringify(item) } })}
       >
-          {/* 产品名称 + 状态标签 */}
+          {/* Product Name + Status Label */}
           <View style={styles.row}>
               <Text style={[styles.goods, { color: isDark ? '#f1f5f9' : '#111827' }]}>
                   {item.finished_goods}
@@ -55,7 +55,7 @@ export default function DashboardScreen() {
               </Text>
           </View>
 
-          {/* 数量和到期日期 */}
+          {/* Quantity and Expiry Date*/}
           <Text style={{ color: isDark ? '#cbd5e1' : '#475569', marginBottom: 8 }}>
               Qty: {item.produced_quantity}
           </Text>
@@ -63,7 +63,7 @@ export default function DashboardScreen() {
               Due: {dayjs(item.due_date).format('DD MMM YYYY')}
           </Text>
 
-          {/* 你最爱的三个状态切换按钮！ */}
+          {/* Your three favorite status toggle buttons! */}
           <View style={styles.statusButtons}>
               {(['Pending', 'In Progress', 'Completed'] as const).map((s) => (
                   <TouchableOpacity

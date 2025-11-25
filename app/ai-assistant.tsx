@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import { usePOStore } from '../src/store/usePOstore';
 import dayjs from 'dayjs';
-import { useTheme } from '../src/theme/ThemeContext'; // ← 新增这行！
+import { useTheme } from '../src/theme/ThemeContext'; 
 
 export default function AIAssistantScreen() {
     const { orders } = usePOStore();
-    const { theme } = useTheme();                    // ← 新增
-    const isDark = theme === 'dark';                 // ← 新增
+    const { theme } = useTheme();                 
+    const isDark = theme === 'dark';                
 
     const [insights, setInsights] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
@@ -18,8 +18,8 @@ export default function AIAssistantScreen() {
             const newInsights: string[] = [];
 
             if (orders.length === 0) {
-                newInsights.push("数据库为空，赶紧去添加第一个生产订单吧！");
-                newInsights.push("提示：点击右下角蓝色 + 按钮开始");
+                newInsights.push("The database is empty. Go add the first production order now!");
+                newInsights.push("Tips: Click the blue " +" button in the bottom right corner to start.");
                 setInsights(newInsights);
                 setLoading(false);
                 return;
@@ -29,7 +29,7 @@ export default function AIAssistantScreen() {
                 .filter(o => o.status !== 'Completed')
                 .filter(o => dayjs(o.due_date).diff(dayjs(), 'day') <= 7) // 
                 .sort((a, b) => dayjs(a.due_date).diff(dayjs(), 'day') - dayjs(b.due_date).diff(dayjs(), 'day')) // 
-                .slice(0, 3); // 最多提醒3个
+                .slice(0, 3); // max 3
 
             urgent.forEach(o => {
                 const daysLeft = dayjs(o.due_date).diff(dayjs(), 'day');

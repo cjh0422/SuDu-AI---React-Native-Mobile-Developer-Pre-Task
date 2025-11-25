@@ -1,4 +1,4 @@
-﻿// 文件路径：app/add-order.tsx   ← 直接覆盖整个文件
+﻿//app/add-order.tsx 
 import React, { useState } from 'react';
 import {
   View,
@@ -20,13 +20,13 @@ import { useTheme } from '../src/theme/ThemeContext';
 export default function AddOrderScreen() {
   const router = useRouter();
     const { loadOrders } = usePOStore();
-    const { theme } = useTheme();                    // ← 新增
+    const { theme } = useTheme();                
     const isDark = theme === 'dark';
 
   const [finishedGoods, setFinishedGoods] = useState('');
   const [quantity, setQuantity] = useState('');
   const [rawMaterials, setRawMaterials] = useState('');
-  const [storageLocation, setStorageLocation] = useState('');   // ← 已经修复
+  const [storageLocation, setStorageLocation] = useState('');  
   const [dueDate, setDueDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 

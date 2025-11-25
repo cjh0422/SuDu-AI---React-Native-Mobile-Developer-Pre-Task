@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const [theme, setTheme] = useState<Theme>('light');
 
     useEffect(() => {
-        // 读取保存的主题
+        // read theme from storage
         AsyncStorage.getItem('theme').then(saved => {
             if (saved === 'dark') setTheme('dark');
         });
