@@ -53,7 +53,7 @@ npx expo start
 - Used exactly this method for order details
 4. Write AI analysis logic for POs
 - Gave rule-based examples on due date & qty
-- Built full AI Assistant screen with cards & Chinese
+- Built full AI Assistant screen with cards
 5. Conditional styling in React Native
 - First gave wrong && {color} syntax
 - Fixed to variable-based style after syntax error
