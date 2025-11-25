@@ -16,6 +16,7 @@ import { useRouter } from 'expo-router';
 import db from '../src/database/db';
 import { usePOStore } from '../src/store/usePOstore';
 import { useTheme } from '../src/theme/ThemeContext';
+import { scheduleAllDueNotifications } from '../src/notification/notification';
 
 export default function AddOrderScreen() {
   const router = useRouter();
@@ -51,7 +52,8 @@ export default function AddOrderScreen() {
       ]
     );
 
-    loadOrders();
+      loadOrders();
+      scheduleAllDueNotifications();
     Alert.alert('Success!', 'New production order created', [
       { text: 'OK', onPress: () => router.back() },
     ]);

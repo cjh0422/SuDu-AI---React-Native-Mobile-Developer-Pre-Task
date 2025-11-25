@@ -5,10 +5,12 @@
     "\\assets",
     "\\assets\\images",
     "\\src",
+    "\\src\\auth",
     "\\src\\database",
+    "\\src\\notification",
     "\\src\\store",
-    "\\src\\types"
+    "\\src\\theme"
   ],
-  "SelectedNode": "\\app\\add-order.tsx",
+  "SelectedNode": "\\app\\_layout.tsx",
   "PreviewInSolutionExplorer": false
 }

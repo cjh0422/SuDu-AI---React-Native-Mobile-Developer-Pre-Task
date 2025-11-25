@@ -5,6 +5,8 @@ import { initDatabase } from '../src/database/db';
 import { ThemeProvider } from '../src/theme/ThemeContext';
 import { authenticate } from '../src/auth/LocalAuth';
 import { View, ActivityIndicator, Text } from 'react-native';
+import { scheduleAllDueNotifications } from '../src/notification/notification';
+import { LogBox } from 'react-native';
 
 export default function RootLayout() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,6 +14,7 @@ export default function RootLayout() {
 
     useEffect(() => {
         initDatabase();
+        scheduleAllDueNotifications();
 
         const checkAuth = async () => {
             const success = await authenticate(); // Identify user everytime app loads
@@ -21,6 +24,7 @@ export default function RootLayout() {
 
         checkAuth();
     }, []);
+    LogBox.ignoreLogs(['Remote notifier']);
 
     if (isLoading || !isAuthenticated) {
         return (
@@ -42,4 +46,5 @@ export default function RootLayout() {
             </Stack>
         </ThemeProvider>
     );
+
 }

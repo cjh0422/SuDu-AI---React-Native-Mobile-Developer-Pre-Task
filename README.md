@@ -1,50 +1,64 @@
-# Welcome to your Expo app 👋
+# Production Order Management App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A complete mobile-first Production Order (PO) management system built with **Expo**, **React Native**, and **SQLite**.
 
-## Get started
+Live Demo: Run `npx expo start` → Scan with **Expo Go** on your phone
 
-1. Install dependencies
+## Features (All Completed)
 
-   ```bash
-   npm install
-   ```
+- Orders Dashboard with real-time search  
+- Create new production order (full form + validation + date picker)  
+- Order details screen  
+- Instant status update (Pending → In Progress → Completed)  
+- Fully persistent SQLite storage (data survives app close/reinstall)  
+- Local AI Assistant – smart insights & reminders (100% offline)  
+- Clean, modern UI with consistent colors and spacing  
+- Dark mode support (system automatic)  
+- Multiple floating action buttons (+ and AI)
 
-2. Start the app
+## Tech Stack
 
-   ```bash
-   npx expo start
-   ```
+- Expo SDK 54 (Managed workflow)  
+- Expo Router (file-based routing)  
+- expo-sqlite (synchronous API – lightning fast)  
+- Zustand (global state)  
+- Day.js (date handling)  
+- Pure React Native components
 
-In the output, you'll find options to open the app in a
+## Project Structure
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Get Started
 
-## Get a fresh project
+# 1. Install dependencies
+npm install
 
-When you're ready, run:
+# 2. Install the correct SQLite version
+npx expo install expo-sqlite@latest
 
-```bash
-npm run reset-project
-```
+# 3. Start the app
+npx expo start
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+## AI Usage Log
 
-To learn more about developing your project with Expo, look at the following resources:
+1. How to insert data with expo-sqlite?
+- Showed runSync() and getAllSync(),
+- Used sync API throughout for instant updates
+2. Form validation for numeric input
+- Suggested Yup + Formik
+- Implemented manual checks (lighter & faster)
+3. Pass object between screens in expo-router
+- JSON.stringify + useLocalSearchParams
+- Used exactly this method for order details
+4. Write AI analysis logic for POs
+- Gave rule-based examples on due date & qty
+- Built full AI Assistant screen with cards & Chinese
+5. Conditional styling in React Native
+- First gave wrong && {color} syntax
+- Fixed to variable-based style after syntax error
+6. Multiple floating buttons
+- Absolute positioning trick
+- Created blue “+” and purple “AI” buttons
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Thanks for checking out my Production Order Management App! If you have any questions or feedback, feel free to reach out. 
